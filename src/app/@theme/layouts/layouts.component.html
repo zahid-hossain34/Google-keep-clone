@@ -1,13 +1,52 @@
-
-
-<div class="flex ">
-    <div>
-      <p class="text-red-400">
-        layouts works!
-      </p>
-      <button mat-button>Basic</button>
-    </div>
-    <div>
-      <router-outlet></router-outlet>
-    </div>
-</div>
+<!-- toolbar -->
+<mat-toolbar
+  class="example-toolbar bg-[#202124] border-b-[1px] border-gray-500"
+>
+  <button mat-icon-button (click)="isExpanded = !isExpanded">
+    <mat-icon class="text-white">menu</mat-icon>
+  </button>
+  <h1 class="example-app-name text-white">Keep</h1>
+</mat-toolbar>
+<!-- sidenav -->
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav
+    #sidenav
+    class="example-sidenav"
+    mode="side"
+    opened="true"
+    (mouseenter)="mouseenter()"
+    (mouseleave)="mouseleave()"
+  >
+    <mat-nav-list
+      [ngClass]="{ 'example-sidenav-expand': isExpanded || isShowing }"
+    >
+      <mat-list-item>
+        <a
+          routerLink="/notes"
+          routerLinkActive="active"
+          class="parent flex justify-between space-x-8 items-center"
+        >
+          <mat-icon mat-list-icon class="flex items-center justify-center">
+            lightbulb</mat-icon
+          >
+          <span class="full-width" *ngIf="isExpanded || isShowing">Notes</span>
+        </a>
+      </mat-list-item>
+      <mat-list-item>
+        <a
+          routerLink="/trash"
+          routerLinkActive="active"
+          class="parent flex items-center space-x-8 justify-between"
+        >
+          <mat-icon mat-list-icon class="flex items-center justify-center"
+            >delete</mat-icon
+          >
+          <span class="full-width" *ngIf="isExpanded || isShowing">Bin</span>
+        </a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <div class="example-sidenav-content">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>

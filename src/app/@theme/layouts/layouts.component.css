@@ -1,0 +1,55 @@
+.example-container {
+    height: 500px;
+    background: #202124;
+
+  }
+  .example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .example-sidenav {
+     user-select: none;
+     background: #202124;
+     border: none;
+  }
+
+  .example-sidenav-expand{
+    width: 200px;
+    transition: width 300ms ease;
+
+  }
+  .full-width {
+    width: 100%;
+  }
+  .menu-button {
+    transition: 300ms ease-in-out;
+    transform: rotate(0deg);
+  }
+  .menu-button.rotated {
+    transform: rotate(180deg);
+  }
+  .submenu {
+    overflow-y: hidden;
+    transition: transform 300ms ease;
+    transform: scaleY(0);
+    transform-origin: top;
+    padding-left: 30px;
+  }
+  .submenu.expanded {
+    transform: scaleY(1);
+  }
+  .parent{
+    color: white;
+    padding: 10px 10px;
+
+  }
+  .parent.active {
+    background-color: #d0b83f;
+    border-top-right-radius:20px; 
+    border-bottom-right-radius:20px;
+    padding: 10px 10px;
+    transition: background-color 300ms ease;
+  }
+ 

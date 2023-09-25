@@ -8,19 +8,19 @@ const routes: Routes = [
     path: '',
     component: LayoutsComponent,
     children: [
-      { path: '', redirectTo: 'note-list', pathMatch: 'full' },
+      { path: '', redirectTo: 'notes', pathMatch: 'full' },
       {
-        path: 'note-list',
+        path: 'notes',
         loadChildren: () =>
           import('./@features/note-list/note-list.module').then(
             (m) => m.NoteListModule
           ),
       },
       {
-        path: 'note-details',
+        path: 'trash',
         loadChildren: () =>
-          import('./@features/note-details/note-details.module').then(
-            (m) => m.NoteDetailsModule
+          import('./@features/deleted-note/deleted-note.module').then(
+            (m) => m.DeletedNoteModule
           ),
       },
     ],
