@@ -1,13 +1,10 @@
 .example-container {
-    height: 500px;
+    height: 100%;
     background: #202124;
 
   }
   .example-sidenav-content {
-    display: flex;
     height: 100%;
-    align-items: center;
-    justify-content: center;
   }
   .example-sidenav {
      user-select: none;

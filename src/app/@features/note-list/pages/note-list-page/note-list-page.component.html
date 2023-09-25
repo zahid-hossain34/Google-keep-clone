@@ -1,3 +1,17 @@
-<p>
-  note-list-page works!
-</p>
+<!-- <div class="flex justify-center mt-10">
+  <ckeditor [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor>
+</div> -->
+<div appClickAwayListener (clickAway)="handleClickAway()"  class="flex m-auto items-center justify-center flex-col">
+  <div class="flex w-[600px] flex-col shadow-md rounded-md border border-zinc-200 p-3 mt-10">
+    <input [(ngModel)]="title" (ngModelChange)="handleTitleChange(title)" *ngIf="showTitle" class="p-3 border-none text-white focus:outline-none bg-transparent " type="text" matInput placeholder="Title" />
+    <ckeditor  (focus)="onFoucusEditor()" [editor]="Editor" [(ngModel)]="editorContent" [config]="editorConfig" (change)="onEditorChange($event)" ></ckeditor>
+  </div>
+</div>
+<div cdkDropList cdkDropListOrientation="horizontal" class="example-list mt-10" (cdkDropListDropped)="drop($event)">
+  <div class="example-box" *ngFor="let note of notes$ | async" cdkDrag>
+    <h1>{{note.noteTitle}}</h1>
+    <p [innerHTML]="note.noteDescription">{{note.noteDescription}}</p>
+  </div>
+</div>
+
+
