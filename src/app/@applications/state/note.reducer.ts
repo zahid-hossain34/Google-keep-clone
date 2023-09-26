@@ -4,6 +4,7 @@ import * as NoteActions from './note.actions';
 
 const initialState: NoteState = {
     notes: [],
+    items: []
   }
 
   
@@ -12,8 +13,17 @@ const initialState: NoteState = {
     on(NoteActions.updateNoteDescription, (state, { noteDescription }) => ({ ...state, noteDescription: noteDescription })),
     on(NoteActions.updateNoteTitle, (state, { noteTitle }) => ({ ...state, noteTitle })),
     on(NoteActions.resetNote, state => ({ ...state, noteDescription: '',noteTitle:'' })),
-    on(NoteActions.addNewNote, (state, { noteTitle, noteDescription }) => ({ 
+    on(NoteActions.addNewNote, (state, { id,noteTitle, noteDescription }) => ({ 
         ...state, 
-        notes: [...state.notes, { noteTitle, noteDescription }] 
-      }))
+        notes: [...state.notes, { id,noteTitle, noteDescription }] 
+      })),
+      on(NoteActions.deleteItem, (state, { index }) => {
+        const updatedItems =  [...state.notes.slice(0, index), ...state.items.slice(index + 1)] ;
+        console.log(updatedItems);
+        
+        return {
+          ...state,
+          items: updatedItems
+        };
+      })
   );

@@ -15,3 +15,7 @@ export const addNewNote = createAction(
   '[Editor] Add New Data',
   props<INotes>()
 );
+export const deleteItem = createAction(
+  '[Item] Delete Item',
+  props<{ index: number }>()
+);

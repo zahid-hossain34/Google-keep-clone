@@ -62,3 +62,10 @@
   justify-content: setart;
   align-items: start;
 }
+.card-action{
+  opacity: 0;
+}
+.card:hover .card-action{
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}

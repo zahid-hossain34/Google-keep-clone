@@ -17,6 +17,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'note-details/:id',
+        loadChildren: () =>
+          import('./@features/note-details/note-details.module').then(
+            (m) => m.NoteDetailsModule
+          ),
+      },
+      {
         path: 'trash',
         loadChildren: () =>
           import('./@features/deleted-note/deleted-note.module').then(
@@ -29,6 +36,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+exports: [RouterModule],
 })
 export class AppRoutingModule {}
