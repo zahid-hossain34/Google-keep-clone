@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { NoteState } from './note.state';
+import { INotes, NoteState } from './note.state';
 
 export const updateNoteDescription = createAction(
   '[Note] Update Note Description',
@@ -13,5 +13,5 @@ export const resetNote = createAction('[Editor] Reset Content');
 
 export const addNewNote = createAction(
   '[Editor] Add New Data',
-  props<{ noteTitle: string, noteDescription: string }>()
+  props<INotes>()
 );

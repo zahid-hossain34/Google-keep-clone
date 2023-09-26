@@ -1,4 +1,9 @@
 export interface NoteState {
   
-    notes: { noteTitle: string, noteDescription: string }[]
+    notes: INotes[]
+  }
+  export interface INotes{
+
+    noteTitle: string,
+    noteDescription: string
   }

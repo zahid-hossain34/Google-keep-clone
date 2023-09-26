@@ -3,7 +3,7 @@ import { NoteState } from "./note.state";
 import * as NoteActions from './note.actions';
 
 const initialState: NoteState = {
-    notes: []
+    notes: [],
   }
 
   

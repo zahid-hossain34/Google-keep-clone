@@ -1,17 +1,52 @@
 <!-- <div class="flex justify-center mt-10">
   <ckeditor [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor>
 </div> -->
-<div appClickAwayListener (clickAway)="handleClickAway()"  class="flex m-auto items-center justify-center flex-col">
-  <div class="flex w-[600px] flex-col shadow-md rounded-md border border-zinc-200 p-3 mt-10">
-    <input [(ngModel)]="title" (ngModelChange)="handleTitleChange(title)" *ngIf="showTitle" class="p-3 border-none text-white focus:outline-none bg-transparent " type="text" matInput placeholder="Title" />
-    <ckeditor  (focus)="onFoucusEditor()" [editor]="Editor" [(ngModel)]="editorContent" [config]="editorConfig" (change)="onEditorChange($event)" ></ckeditor>
+<div class="flex flex-col space-y-6 ">
+  <div class="flex m-auto items-center justify-center flex-col">
+    <div
+      appClickAwayListener
+      (clickAway)="handleClickAway()"
+      class="flex w-[600px] flex-col shadow-md rounded-md border border-zinc-200 p-3 mt-10"
+    >
+      <input
+        [(ngModel)]="title"
+        (ngModelChange)="handleTitleChange(title)"
+        *ngIf="showTitle"
+        class="p-3 border-none text-white focus:outline-none bg-transparent"
+        type="text"
+        matInput
+        placeholder="Title"
+      />
+      <ckeditor
+        (focus)="onFoucusEditor()"
+        [editor]="Editor"
+        [(ngModel)]="editorContent"
+        [config]="editorConfig"
+        (change)="onEditorChange($event)"
+      ></ckeditor>
+    </div>
+  </div>
+  
+  <div class="px-2 ">
+    <mat-grid-list
+    cdkDropList
+    cdkDropListOrientation="horizontal"
+    (cdkDropListDropped)="drop($event)"
+    cols="5"
+    rowHeight="1:1"
+    gutterSize="10px"
+    class="example-list"
+  >
+    <mat-grid-tile
+      class="example-box  "
+      *ngFor="let note of notes$ | async"
+      cdkDrag
+    >
+        <div class="min-w-full min-h-full   ">
+          <h1>{{ note.noteTitle || "" }}</h1>
+        <p class= " " [innerHTML]="note.noteDescription">{{ note.noteDescription }}</p>
+        </div>
+    </mat-grid-tile>
+  </mat-grid-list>
   </div>
 </div>
-<div cdkDropList cdkDropListOrientation="horizontal" class="example-list mt-10" (cdkDropListDropped)="drop($event)">
-  <div class="example-box" *ngFor="let note of notes$ | async" cdkDrag>
-    <h1>{{note.noteTitle}}</h1>
-    <p [innerHTML]="note.noteDescription">{{note.noteDescription}}</p>
-  </div>
-</div>
-
-

@@ -8,6 +8,7 @@ import { ClickAwayListenerDirective } from 'src/app/@applications/directives/cli
 
 import {MatInputModule} from '@angular/material/input';
 import {DragDropModule,CdkDrag, CdkDropList, moveItemInArray} from '@angular/cdk/drag-drop';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 const COMPONETS = [
   // pages
@@ -22,7 +23,8 @@ const COMPONETS = [
     NoteListRoutes,
     CKEditorModule,
     MatInputModule,
-    DragDropModule
+    DragDropModule,
+    MatGridListModule
   ],
   declarations: [...COMPONETS,
     ClickAwayListenerDirective
