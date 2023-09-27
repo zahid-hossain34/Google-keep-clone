@@ -17,7 +17,7 @@ const initialState: NoteState = {
         ...state, 
         notes: [...state.notes, { id,noteTitle, noteDescription }] 
       })),
-      on(NoteActions.deleteItem, (state, { index }) => {
+      on(NoteActions.deleteNote, (state, { index }) => {
         const updatedItems =  [...state.notes.slice(0, index), ...state.items.slice(index + 1)] ;
         console.log(updatedItems);
         
