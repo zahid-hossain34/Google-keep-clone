@@ -66,6 +66,7 @@
   opacity: 0;
 }
 .card:hover .card-action{
+  z-index: 1;
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
 }

@@ -5,12 +5,11 @@
   <div class="flex m-auto items-center justify-center flex-col">
     <div
       appClickAwayListener
-      (clickAway)="handleClickAway()"
+      (clickAway)="onClickAway()"
       class="flex w-[600px] flex-col shadow-md rounded-md border border-zinc-200 p-3 mt-10"
     >
       <input
         [(ngModel)]="title"
-        (ngModelChange)="onTitleChange(title)"
         *ngIf="showTitle"
         class="p-3 border-none text-white focus:outline-none bg-transparent"
         type="text"
@@ -39,7 +38,7 @@
     >
       <mat-grid-tile
       class="example-box"
-      *ngFor="let note of notes$ | async, let i = index"
+      *ngFor="let note of notes$ | async"
       (click)="onNoteClick(note?.id)"
         cdkDrag
       >
@@ -47,7 +46,7 @@
           <div class=" card-action flex justify-end absolute top-0 right-0">
             <button
               mat-icon-button
-              (click)="onDelete(i)"
+              (click)="onDelete(note.id)"
             >
             <mat-icon>delete</mat-icon>
             </button>

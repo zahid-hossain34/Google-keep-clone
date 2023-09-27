@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import {  NoteState } from './note.state';
-import { INotes, IUpdateNote } from '../interfaces/note.interface';
+import { INotes, IUpdateNote } from '../../interfaces/note.interface';
 
 export const addNewNote = createAction(
   '[Note] Add New Data',
@@ -14,7 +14,7 @@ export const updateNote = createAction(
 
 export const deleteNote = createAction(
   '[Note] Delete Item',
-  props<{ index: number }>()
+  props<{ id: string }>()
 );
 
 export const getNoteById = createAction(
@@ -29,13 +29,5 @@ export const setNote = createAction(
 
 export const resetNote = createAction('[Note] Reset Content');
 
-export const updateNoteDescription = createAction(
-  '[Note] Update Note Description',
-  props<{ noteDescription: string }>()
-);
 
-export const updateNoteTitle = createAction(
-  '[Note] Update Note Title',
-  props<{ noteTitle: string }>()
-);
 

@@ -9,7 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { ClickAwayListenerDirective } from './@applications/directives/click-away-listener.directive';
 import { StoreModule } from '@ngrx/store';
-import { noteReducer } from './@applications/state/note.reducer';
+import { noteReducer } from './@applications/store/note-state/note.reducer';
+import { metaReducers } from './@applications/store/store';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { noteReducer } from './@applications/state/note.reducer';
     ThemeModule,
     BrowserAnimationsModule,
     CKEditorModule,
-    StoreModule.forRoot({note:noteReducer})
+    StoreModule.forRoot({ note: noteReducer },{metaReducers})
     
   ],
   providers: [],
