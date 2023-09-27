@@ -20,7 +20,6 @@ export class NoteListPageComponent implements OnInit {
   showTitle = false;
   title: string = '';
   editorContent: string = '';
-  retrievedData: string = '';
   notes$: Observable<INotes[]>;
 
   constructor(
@@ -62,7 +61,6 @@ export class NoteListPageComponent implements OnInit {
   }
 
   onNoteClick(noteID: any) {
-    console.log(noteID);
     this.router.navigate(['/note-details', noteID]);
   }
 
