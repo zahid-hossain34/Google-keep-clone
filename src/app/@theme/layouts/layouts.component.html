@@ -2,8 +2,11 @@
 <mat-toolbar
   class="example-toolbar bg-[#202124] border-b-[1px] border-gray-500"
 >
-  <button mat-icon-button (click)="isExpanded = !isExpanded">
-    <mat-icon class="text-white">menu</mat-icon>
+  <button *ngIf="isIdAvailable" mat-icon-button (click)="onBack()">
+    <mat-icon  class="text-white">keyboard_backspace</mat-icon>
+  </button>
+  <button *ngIf="!isIdAvailable" mat-icon-button (click)="isExpanded = !isExpanded">
+    <mat-icon  class="text-white">menu</mat-icon>
   </button>
   <h1 class="example-app-name text-white">Keep</h1>
 </mat-toolbar>

@@ -42,11 +42,16 @@ const initialState: NoteState = {
       selectedNote: note || null 
     };
   }),
-  
-  on(NoteActions.resetNote, state => ({
+  on(NoteActions.getDeletedNotes, state => ({
     ...state,
-    notes: []
-  }))
+    deletedNotes: state.deletedNotes
+    })),
+  
+  on(NoteActions.emptyRecycleBin, state => ({
+    ...state,
+    deletedNotes: []
+  })),
+
 );
 
 

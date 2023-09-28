@@ -1,3 +1,25 @@
-<p>
-  deleted-note works!
-</p>
+
+<div class="overflow-hidden ">
+  <div class="flex items-center justify-center space-x-4 py-1 ">
+    <p class="text-white ">Empty recycle bin </p>
+    <p (click)="onEmptyRecycleBin()" class="text-blue-700 cursor-pointer">Empty Bin</p>
+  </div>
+  <div class="px-2 pt-10">
+    <mat-grid-list
+      cols="5"
+      rowHeight="1:1"
+      gutterSize="10px"
+      class="w-full flex space-x-4"
+    >
+      <mat-grid-tile
+        *ngFor="let note of deletedNotes$ | async"
+        class="example-box"
+      >
+        <div class="min-w-full min-h-full">
+          <h1>{{ note.noteTitle || "" }}</h1>
+          <p [innerHTML]="note.noteDescription">{{ note.noteDescription }}</p>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>

@@ -59,7 +59,7 @@
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
   }
 .mat-grid-tile-content{
-  justify-content: setart;
+  justify-content: start;
   align-items: start;
 }
 .card-action{
