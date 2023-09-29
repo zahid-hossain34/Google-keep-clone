@@ -51,11 +51,9 @@ const initialState: NoteState = {
     ...state,
     deletedNotes: []
   })),
-
-);
-
-
-
-
-
-    
+  on(NoteActions.dragNote, (state, { previousIndex, currentIndex }) => {
+    const notes = [...state.notes];
+    const [draggedNote] = notes.splice(previousIndex, 1);
+    notes.splice(currentIndex, 0, draggedNote);
+    return { ...state, notes };
+  }));

@@ -66,6 +66,9 @@ export class NoteListPageComponent implements OnInit {
 
   drop(event: CdkDragDrop<string[]>) {
     console.log(event);
+    const previousIndex = event.previousIndex;
+    const currentIndex = event.currentIndex;
+    this.store.dispatch(NoteActions.dragNote({ previousIndex, currentIndex }));
 
     // moveItemInArray(this.notes$, event.previousIndex, event.currentIndex);
   }

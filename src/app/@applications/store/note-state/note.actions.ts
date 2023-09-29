@@ -28,6 +28,11 @@ export const setNote = createAction(
 export const getDeletedNotes = createAction(
   '[Note] Get Deleted Notes'
 );
+export const dragNote = createAction(
+  '[Note] Drag Note',
+  props<{ previousIndex: number, currentIndex: number }>()
+);
+
 
 export const emptyRecycleBin = createAction('[Note] Empty Bin');
 

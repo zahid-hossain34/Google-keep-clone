@@ -37,18 +37,16 @@
       class="example-list"
     >
       <mat-grid-tile
-      class="example-box"
-      *ngFor="let note of notes$ | async"
-      (click)="onNoteClick(note?.id)"
+        class="example-box"
+        *ngFor="let note of notes$ | async"
+        (click)="onNoteClick(note?.id)"
         cdkDrag
+        [cdkDragData]="note"
       >
         <div class="min-w-full min-h-full relative card">
-          <div class=" card-action flex justify-end absolute top-0 right-0">
-            <button
-              mat-icon-button
-              (click)="onDelete(note.id)"
-            >
-            <mat-icon>delete</mat-icon>
+          <div class="card-action flex justify-end absolute top-0 right-0">
+            <button mat-icon-button (click)="onDelete(note.id)">
+              <mat-icon>delete</mat-icon>
             </button>
           </div>
           <h1>{{ note.noteTitle || "" }}</h1>
