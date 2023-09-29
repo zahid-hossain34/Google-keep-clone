@@ -1,21 +1,29 @@
-<div class="flex m-auto items-center justify-center flex-col">
-  <div
-   
-    class="flex w-[600px] flex-col shadow-md rounded-md border border-zinc-200 p-3 mt-10"
-  >
-    <input
-      [(ngModel)]="title"
-      (ngModelChange)="onTitleChange(title)"
-      class="p-3 border-none text-white focus:outline-none bg-transparent"
-      type="text"
-      matInput
-      placeholder="Title"
-    />
-    <ckeditor
-      [editor]="Editor"
-      [(ngModel)]="editorContent"
-      [config]="editorConfig"
-      (change)="onEditorChange($event)"
-    ></ckeditor>
+<div  class="">
+  <div class="flex items-center justify-end p-2">
+    <button mat-raised-button color="warn" (click)="onDeleteNote()">Delete</button>
   </div>
+  <div class="flex m-auto items-center justify-center flex-col  ">
+    <div
+     
+      class="flex w-[600px] flex-col shadow-md rounded-md border border-zinc-200 p-3 mt-10"
+    >
+      <input
+        [(ngModel)]="title"
+        (ngModelChange)="onTitleChange(title)"
+        class="p-3 border-none text-white focus:outline-none bg-transparent"
+        type="text"
+        matInput
+        placeholder="Title"
+      />
+      <ckeditor
+        [editor]="Editor"
+        [(ngModel)]="editorContent"
+        [config]="editorConfig"
+        (change)="onEditorChange($event)"
+      ></ckeditor>
+    </div>
+  
+  </div>
+
 </div>
+

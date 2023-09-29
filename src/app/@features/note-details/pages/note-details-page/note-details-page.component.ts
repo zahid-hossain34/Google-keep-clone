@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import * as NoteActions from '../../../../@applications/store/note-state/note.actions';
 
@@ -20,7 +20,8 @@ export class NoteDetailsPageComponent implements OnInit {
 
   constructor(
     private store: Store<{ note: NoteState }>,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private route:Router
   ) {
 
     this.store.select('note', 'selectedNote').subscribe((res) => {
@@ -65,6 +66,13 @@ export class NoteDetailsPageComponent implements OnInit {
         noteDescription:this.editorContent
       }
     }));
+  }
+  onDeleteNote(){
+    this.store.dispatch(NoteActions.deleteNote({
+      id:this.id
+    }));
+    this.route.navigate(['/notes']);
+
   }
 
 }

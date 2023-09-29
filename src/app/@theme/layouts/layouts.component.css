@@ -3,8 +3,10 @@
     background: #202124;
 
   }
+  
   .example-sidenav-content {
     height: 100%;
+    /* display: none; */
   }
   .example-sidenav {
      user-select: none;
