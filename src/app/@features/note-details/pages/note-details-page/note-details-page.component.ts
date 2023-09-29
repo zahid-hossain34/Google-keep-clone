@@ -35,12 +35,9 @@ export class NoteDetailsPageComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.paramMap.pipe().subscribe((res) => {
       this.id = String(res.get('id'));
-      console.log(this.id);
+      this.store.dispatch(NoteActions.getNoteById({id:this.id}));
       
     });
-    if(this.id){
-      this.store.dispatch(NoteActions.getNoteById({id:this.id}));
-    }
   }
   
   editorConfig = {

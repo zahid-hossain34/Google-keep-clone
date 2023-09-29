@@ -20,7 +20,10 @@ export const getNoteById = createAction(
   '[Note] Get Note By Id',
   props<{id:string}>()
 );
-
+export const setNoteId = createAction(
+  '[Note] Set ID',
+  props<{ id: string }>()
+);
 export const setNote = createAction(
   '[Note] Set Note',
   props<{ note: INotes }>()
@@ -32,7 +35,6 @@ export const dragNote = createAction(
   '[Note] Drag Note',
   props<{ previousIndex: number, currentIndex: number }>()
 );
-
 
 export const emptyRecycleBin = createAction('[Note] Empty Bin');
 
