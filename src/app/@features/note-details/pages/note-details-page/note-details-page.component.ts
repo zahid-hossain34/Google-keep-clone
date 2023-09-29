@@ -20,12 +20,12 @@ export class NoteDetailsPageComponent implements OnInit {
 
   constructor(
     private store: Store<{ note: NoteState }>,
-    private activatedRoute: ActivatedRoute,
     private route:Router
   ) {
 
     this.store.select('note', 'selectedNote').subscribe((res) => {
       if(res){
+        this.id = res.id as string;
         this.title = res.noteTitle;
         this.editorContent = res.noteDescription;
       }
@@ -33,11 +33,7 @@ export class NoteDetailsPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.activatedRoute.paramMap.pipe().subscribe((res) => {
-      this.id = String(res.get('id'));
-      this.store.dispatch(NoteActions.getNoteById({id:this.id}));
-      
-    });
+
   }
   
   editorConfig = {
